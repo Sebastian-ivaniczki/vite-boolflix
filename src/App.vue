@@ -14,12 +14,32 @@ export default {
      
     }
   },
+  methods: {
+    getMovies (searchedText) {
+      console.log(searchedText);
+      axios.get(this.moviesApiUri, {
+        params: {
+          api_key: this.apiKey,
+          query: searchedText,
+          
+        }
+      })
+      .then((response) => {
+       
+        this.store.moviesList = response.data.results;
+        
+    })   
+    },
+    searchAll(searchedText){
+      this.getMovies(searchedText);
+    }
+  }
 }
 </script>
 
 <template>
 
-<AppHeader></AppHeader>
+<AppHeader @searched="searchAll"></AppHeader>
 <AppMain></AppMain>
 </template>
 

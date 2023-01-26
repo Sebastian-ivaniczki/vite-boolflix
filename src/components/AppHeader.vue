@@ -8,15 +8,15 @@ export default {
             store
         }
     },
-    emits:[ 'searchedText' ] 
+    emits:[ 'searched' ] 
        
 }
 </script>
 
 <template>
 <div class="input-group mb-3">
-  <input @keyup.enter="$emit('searchedText', store.searchedText)" v-model="store.searchedText" type="text" class="form-control" placeholder="inserisci nome film">
-  <button class="btn btn-outline-secondary">Button</button>
+  <input v-model="store.searchedText" type="text" class="form-control" placeholder="inserisci nome film">
+  <button @click="$emit('searched', store.searchedText)" class="btn btn-outline-secondary">Button</button>
 </div>
 </template>
 
