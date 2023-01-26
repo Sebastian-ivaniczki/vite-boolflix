@@ -1,4 +1,5 @@
 <script>
+import axios from 'axios'
 import AppMain from './components/AppMain.vue'
 import AppHeader from './components/AppHeader.vue';
 export default {
@@ -13,10 +14,11 @@ export default {
 </script>
 
 <template>
+
 <AppHeader></AppHeader>
 <AppMain></AppMain>
 </template>
 
-<style scoped>
+<style>
 
 </style>
