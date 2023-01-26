@@ -11,12 +11,13 @@ export default {
       store,
       apiKey: '3804462719384461f507b7cd3f30d4e5',
       moviesApiUri: 'https://api.themoviedb.org/3/search/movie?',
+      seriesApiUri: 'https://api.themoviedb.org/3/search/tv?'
      
     }
   },
   methods: {
     getMovies (searchedText) {
-      console.log(searchedText);
+      
       axios.get(this.moviesApiUri, {
         params: {
           api_key: this.apiKey,
@@ -30,9 +31,26 @@ export default {
         
     })   
     },
+    getSeries (searchedText) {
+      console.log(searchedText);
+      axios.get(this.seriesApiUri, {
+        params: {
+          api_key: this.apiKey,
+          query: searchedText,
+          
+        }
+      })
+      .then((res) => {
+        
+        this.store.seriesList = res.data.results;
+        
+     }) 
+   },  
     searchAll(searchedText){
       this.getMovies(searchedText);
+      this.getSeries(searchedText)
     }
+  
   }
 }
 </script>
