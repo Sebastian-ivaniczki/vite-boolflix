@@ -24,9 +24,9 @@ export default {
           
         }
       })
-      .then((response) => {
+      .then((res) => {
        
-        this.store.moviesList = response.data.results;
+        this.store.moviesList = res.data.results;
         
     })   
     },
