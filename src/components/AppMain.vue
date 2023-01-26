@@ -24,7 +24,7 @@ export default {
         </div>
     </li>
 </ul>
-<h1>series</h1>
+<h1 class="my-5 text-danger">series</h1>
 
 <ul>
     <li v-for="serie in store.seriesList" :key="serie.id">
