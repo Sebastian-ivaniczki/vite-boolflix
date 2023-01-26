@@ -8,6 +8,7 @@ export default {
             store
         }
     },
+   
 }
 </script>
 
@@ -17,7 +18,8 @@ export default {
         <div>
             <h2>{{ movie.title }}</h2>
             <h3>{{ movie.original_title }}</h3>
-            <p>{{ movie.original_language }}</p>
+            
+            <img :src="`../assets/${movie.original_language}.png`" alt="">
             <span>{{ movie.vote_average }}</span>
         </div>
     </li>
