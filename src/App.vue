@@ -44,9 +44,17 @@ export default {
 <template>
 
 <AppHeader @searched="searchAll"></AppHeader>
-<AppMain></AppMain>
+<div class="background">
+  <AppMain></AppMain>
+
+</div>
 </template>
 
 <style>
+  .background{
+        background-color: #434343;
+        height: 88vh;
 
+    }
+  
 </style>

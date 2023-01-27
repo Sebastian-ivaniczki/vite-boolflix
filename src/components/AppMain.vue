@@ -24,11 +24,15 @@ export default {
 </script>
 
 <template>
- <card :types="movies"></card>
- <h1 class="text-danger">series</h1>
- <card :type="series"></card>
+    <div>
+        <card :types="movies"></card>
+        <h1 class="text-danger">series</h1>
+        <card :type="series"></card>
+
+    </div>
 </template>
 
 <style scoped>
 
+   
 </style>
