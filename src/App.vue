@@ -16,42 +16,21 @@ export default {
     }
   },
   methods: {
-    getMovies (searchedText) {
-      
-      axios.get(this.moviesApiUri, {
+    getData(apiUri, storeProp) {
+       axios.get(apiUri, {
         params: {
           api_key: this.apiKey,
-          query: searchedText,
-          
+          query: store.searchedText,
         }
       })
       .then((res) => {
-       
-        this.store.moviesList = res.data.results;
-        
-    })   
+        this.store[storeProp] = res.data.results;
+      })   
     },
-    getSeries (searchedText) {
-      
-      axios.get(this.seriesApiUri, {
-        params: {
-          api_key: this.apiKey,
-          query: searchedText,
-          
-        }
-      })
-      .then((res) => {
-        
-        this.store.seriesList = res.data.results;
-        
-     }) 
-   },  
-    searchAll(searchedText){
-      store.searchedText = ''
-      this.getMovies(searchedText);
-      this.getSeries(searchedText)
-    }
-  
+    searchAll(){
+      this.getData(this.moviesApiUri, 'moviesList')
+      this.getData(this.seriesApiUri, 'seriesList')
+    } 
   }
 }
 </script>
