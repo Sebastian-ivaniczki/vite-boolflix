@@ -11,7 +11,7 @@ export default {
     methods: {
         getRating (ratingValue) {
             const rating = Math.ceil(ratingValue / 2);
-            console.log(rating)
+            
             return rating;
          }
     }
