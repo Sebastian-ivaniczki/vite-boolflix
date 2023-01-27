@@ -32,7 +32,8 @@ export default {
         },
         itemOriginalTitle() {
             return this.type === 'movies' ? 'original_title' : 'original_name';
-        }
+        },
+        
     }
 }
 </script>
@@ -47,7 +48,8 @@ export default {
               <font-awesome-icon icon="fa-solid fa-star" v-for=" n in getRating(item.vote_average)" />
               <span v-if="getRating(item.vote_average) == 0">No ratings found</span>
             </p>
-            <img  :src=" `/src/assets/${item.original_language}.png`" :alt="item.original_language">
+            <img v-if="item.original_language === 'it' || item.original_language === 'en'" :src=" `/src/assets/${item.original_language}.png`" :alt="item.original_language">
+            <div v-else>{{ item.original_language }}</div>
             <span>{{ item.vote_average }}</span>
         </div>
     </li>

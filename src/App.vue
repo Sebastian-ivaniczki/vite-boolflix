@@ -16,7 +16,11 @@ export default {
     }
   },
   methods: {
+    
     getData(apiUri, storeProp) {
+      if(!store.searchedText){
+        return
+      }
        axios.get(apiUri, {
         params: {
           api_key: this.apiKey,
@@ -28,8 +32,10 @@ export default {
       })   
     },
     searchAll(){
+      
       this.getData(this.moviesApiUri, 'moviesList')
       this.getData(this.seriesApiUri, 'seriesList')
+      store.searchedText = ''
     } 
   }
 }
