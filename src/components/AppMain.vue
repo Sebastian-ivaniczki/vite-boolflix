@@ -8,23 +8,35 @@ export default {
            imgSize: 'https://image.tmdb.org/t/p/w342/'
         }
     },
-   
+    methods: {
+        getRating (ratingValue) {
+            const rating = Math.ceil(ratingValue / 2);
+            console.log(rating)
+            return rating;
+         }
+    }
+    
 }
 </script>
 
 <template>
-<ul>
-    <li class="my-5" v-for="movie in store.moviesList" :key="movie.id">
+    <ul>
+    <li v-for="movie in store.moviesList" :key="movie.id" class="my-5">
         <div>
+           
             <h2>{{ movie.title }}</h2>
             <h3>{{ movie.original_title }}</h3>
             <img :src="imgSize + movie.poster_path" :alt=" movie.title">
-            
-            <img :src="`/src/assets/${movie.original_language}.png`" :alt="movie.original_language">
+            <p>Rating:
+              <font-awesome-icon icon="fa-solid fa-star" v-for=" n in getRating(movie.vote_average)" />
+              <span v-if="getRating(movie.vote_average) == 0">No ratings found</span>
+            </p>
+            <img  :src=" `/src/assets/${movie.original_language}.png`" :alt="movie.original_language">
             <span>{{ movie.vote_average }}</span>
         </div>
     </li>
 </ul>
+
 <h1 class="my-5 text-danger">series</h1>
 
 <ul>
@@ -33,7 +45,10 @@ export default {
             <h2>{{ serie.name }}</h2>
             <h3>{{ serie.original_name }}</h3>
             <img :src="imgSize + serie.poster_path" :alt="serie.name">
-            
+            <p>Rating:
+              <font-awesome-icon icon="fa-solid fa-star" v-for=" n in getRating(serie.vote_average)" />
+              <span v-if="getRating(serie.vote_average) == 0">No ratings found</span>
+            </p>
             <img :src="`/src/assets/${serie.original_language}.png`" :alt="serie.original_language">
             <span>{{ serie.vote_average }}</span>
         </div>
