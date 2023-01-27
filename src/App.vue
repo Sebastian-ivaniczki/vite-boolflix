@@ -32,7 +32,7 @@ export default {
     })   
     },
     getSeries (searchedText) {
-      console.log(searchedText);
+      
       axios.get(this.seriesApiUri, {
         params: {
           api_key: this.apiKey,
@@ -47,6 +47,7 @@ export default {
      }) 
    },  
     searchAll(searchedText){
+      store.searchedText = ''
       this.getMovies(searchedText);
       this.getSeries(searchedText)
     }
