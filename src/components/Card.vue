@@ -38,23 +38,34 @@ export default {
 }
 </script>
 <template>
-    <ul>
-    <li v-for="item in items" :key="item.id" class="my-5">
-        <div>
-            <h2>{{ item[itemTitle] }}</h2>
-            <h3>{{ item[itemOriginalTitle] }}</h3>
-            <img :src="imgSize + item.poster_path" :alt=" item[itemTitle]">
-            <p>Rating:
-              <font-awesome-icon icon="fa-solid fa-star" v-for=" n in getRating(item.vote_average)" />
-              <span v-if="getRating(item.vote_average) == 0">No ratings found</span>
-            </p>
-            <img v-if="item.original_language === 'it' || item.original_language === 'en'" :src=" `/src/assets/${item.original_language}.png`" :alt="item.original_language">
-            <div v-else>{{ item.original_language }}</div>
-            
-        </div>
-    </li>
-</ul>
-</template>
-<style scoped>
+    <div class="container">
+        <ul> 
+            <li v-for="item in items" :key="item.id" class="my-5">
+                <div>
+                    <h2>{{ item[itemTitle] }}</h2>
+                    <h3>{{ item[itemOriginalTitle] }}</h3>
+                    <img :src="imgSize + item.poster_path" :alt=" item[itemTitle]">
+                    <p>Rating:
+                    <font-awesome-icon icon="fa-solid fa-star" v-for=" n in getRating(item.vote_average)" />
+                    <span v-if="getRating(item.vote_average) == 0">No ratings found</span>
+                    </p>
+                    <img v-if="item.original_language === 'it' || item.original_language === 'en'" :src=" `/src/assets/${item.original_language}.png`" :alt="item.original_language">
+                    <div v-else>{{ item.original_language }}</div>
+                    
+                </div>
+            </li>
+        </ul>
 
+    </div>
+</template>
+
+<style scoped>
+   ul {
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+  
 </style>
