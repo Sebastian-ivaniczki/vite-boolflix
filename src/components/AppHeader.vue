@@ -21,7 +21,7 @@ export default {
                 <h1 class="text-danger"><strong>BOOLFLIX</strong></h1>
             </div>
             <div class="input-group mb-3">
-                <input v-model.trim="store.searchedText" type="text" class="form-control" placeholder="inserisci nome film">
+                <input v-model.trim="store.searchedText" type="text" class="form-control" placeholder="search for movies or series ">
                 <button @click="$emit('searched', store.searchedText)" class="btn btn-outline-primary">serch</button>
             </div>
         </div>
