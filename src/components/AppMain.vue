@@ -7,7 +7,7 @@ export default {
     data() {
         return{
            store, 
-           imgSize: 'https://image.tmdb.org/t/p/w342/',
+           
            movies: 'movies',
            series: 'series'
         }
@@ -26,13 +26,15 @@ export default {
 <template>
     <div>
         <card :types="movies"></card>
-        <h1 class="text-danger">series</h1>
+        <h1 v-if="store.seriesList.length" class="text-danger text-center">Series</h1>
         <card :type="series"></card>
 
     </div>
 </template>
 
 <style scoped>
-
+ h1{
+    
+ }
    
 </style>
