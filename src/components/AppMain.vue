@@ -33,8 +33,6 @@ export default {
 </template>
 
 <style scoped>
- h1{
-    
- }
+
    
 </style>
