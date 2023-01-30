@@ -33,8 +33,8 @@ export default {
     },
     searchAll(){
       
-      this.getData(this.moviesApiUri, 'moviesList')
-      this.getData(this.seriesApiUri, 'seriesList')
+      this.getData(this.moviesApiUri, 'movies')
+      this.getData(this.seriesApiUri, 'series')
       store.searchedText = ''
     } 
   }

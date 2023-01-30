@@ -17,15 +17,21 @@ export default {
         }
     },
     methods: {
+        setStarClass(n){
+            let rating = this.getRating([this.type].vote_average);
+            let starClass = n <= rating ? 'fa-solid' : 'fa-regular';
+            return starClass + ' fa-star';
+        },
+        
         getRating (ratingValue) {
             const rating = Math.ceil(ratingValue / 2);
-            
+            console.log(rating)
             return rating;
-         }
+        },
     },
     computed: {
         items() {
-            return this.type === 'movies' ? this.store.moviesList : this.store.seriesList;
+            return this.type === 'movies' ? this.store.movies : this.store.series;
         },
         itemTitle() {
             return this.type === 'movies' ? 'title' : 'name';
@@ -52,8 +58,8 @@ export default {
                             <h5>{{ item[itemTitle] }}</h5>
                             <h7>{{ item[itemOriginalTitle] }}</h7>
                             <p>Rating:
-                            <font-awesome-icon icon="fa-solid fa-star" v-for=" n in getRating(item.vote_average)" />
-                            <span v-if="getRating(item.vote_average) == 0">No ratings found</span>
+                                <font-awesome-icon :icon="setStarClass(n)" v-for="n in 5" />
+                            
                             </p>
                             <img class="flag" v-if="item.original_language === 'it' || item.original_language === 'en'" :src=" `/src/assets/${item.original_language}.png`" :alt="item.original_language">
                             <div v-else>{{ item.original_language }}</div>

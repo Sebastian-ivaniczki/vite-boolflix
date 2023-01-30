@@ -25,8 +25,8 @@ export default {
 
 <template>
     <div>
-        <card :types="movies"></card>
-        <h1 v-if="store.seriesList.length" class="text-danger text-center">Series</h1>
+        <card :type="movies"></card>
+        <h1 v-if="store.series.length" class="text-danger text-center">Series</h1>
         <card :type="series"></card>
 
     </div>
